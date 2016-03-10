@@ -1,0 +1,31 @@
+
+<div class="jumbotron">
+  <h1>Add a new article</h1>
+</div>
+<form action="/api/articles" method="post">
+
+ <div class="form-group">
+    <label>Title: </label>
+    <input name="title" placeholder="write articles here"></input>
+</div>
+<div class="form-group">
+    <label>author: </label>
+    <input name="author" placeholder="write author name here"></input>
+</div>
+<div class="form-group">
+   <p> <label>summary:</label></p>
+    <textarea name="summary" placeholder="write summery here" cols="50" rows="10"></textarea>
+</div>
+<div class="row">
+  <div class="col-md-4">
+  <input name="image" id="imgUrl" placeholder="write image url here"></input>
+    <p class="text-center img">
+      <img name ="img" id="img" src="">
+    </p>
+  </div>
+</div>
+  <div class="col-md-4">
+    <button type="submit" class="btn btn-inverse btn-lg">Add this article</button>
+  </div>
+
+</from>

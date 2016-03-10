@@ -1,15 +1,18 @@
 <h2>Dashboard</h2>
 <div id="stuff">
-	<h4>Welcome <em>ADD NAME HERE</em></h4>
+	<h4>Welcome <em>{{ user.username }}</em></h4>
+  <p>{{ flash }}</p>
 
-	{{#each stuff}}
-	<p>{{ greeting }} {{ subject }}</p>
-	{{/each}}
+
+	<p> </p>
+
 
 	<hr>
 
-	<button class="btn btn-inverse btn-lg">Add New Article</button>
+	<button class="btn btn-inverse btn-lg" onclick="location.href='/createarticles';">Add New Article</button>
 </div>
+
+
 
 <br>
 <div class="panel panel-default">

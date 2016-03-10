@@ -12,10 +12,10 @@
     <title>The Next XYZ</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/theme.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
   </head>
 
   <body>
@@ -35,9 +35,10 @@
           <ul class="nav navbar-nav">
             <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
             <li><a href="/about"><span class="glyphicon glyphicon-education"></span> About</a></li>
+
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+            <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -53,7 +54,8 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/jquery-2.2.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    {{#each scripts}}<script src="{{this}}"></script>{{/each}}
   </body>
 </html>
