@@ -2,24 +2,45 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var flash = require('connect-flash');
-var mongoose=require('./config/mongoose');
+var mongoose=require('mongoose');
+var mongoosecon=require('./config/mongoose');
     passportConfig = require('./config/passport');
 var passport=require('passport');
 var session = require('express-session');
-var db = mongoose();
+var db = mongoosecon();
 //connect to Mongoose
 // mongoose.connect('mongodb://localhost/test');
 // var Schema=mongoose.Schema;
 
-var Article=require('mongoose').model('Portery');
+var Article=mongoose.model('Portery');
 
-var User=require('mongoose').model('User');
+var User=mongoose.model('User');
 // include express handlebars (templating engine)
 var exphbs  = require('express-handlebars');
 // // Configure the Passport middleware
 var passportConfig=new passportConfig();
 // specify the layout for our handlebars template
-var hbs = exphbs.create({defaultLayout: 'main'});
+var hbs = exphbs.create({defaultLayout: 'main',
+    // Specify helpers which are only registered on this instance.
+    helpers: {
+        grouped_each: function (every, context, options) {
+
+          var out = "", subcontext = [], i;
+          if (context && context.length > 0) {
+              for (i = 0; i < context.length; i++) {
+                  if (i > 0 && i % every === 0) {
+                      out += options.fn(subcontext);
+                      subcontext = [];
+                  }
+                  subcontext.push(context[i]);
+              }
+              out += options.fn(subcontext);
+          }
+          return out;
+
+        }
+    }
+  });
 
 // crethe the express app
 var app = express();
@@ -54,7 +75,6 @@ app.get('/', function (req, res) {
    // res.locals.scripts.push('/js/home.js');
    Article.find({},null,{sort:{data:-1}},function(err,data){
     if(err) throw err;
-    console.log(data);
     res.render('home',{data:data});
   });
 

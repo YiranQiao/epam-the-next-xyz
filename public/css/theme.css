@@ -42,28 +42,40 @@ body {
   padding-top: 12px;
 }
 
- .col-md-3 {
+/* .col-md-3 {
   padding-top: 20px;
   border: solid 1px #e0e0e0;
   width: 100%;
   margin-bottom: 30px;
   margin-right: 5px;
   display: block;
-}
+}*/
  .img img{
   padding-top: 10px;
-  max-height: 200px;
-  max-width: 300px;
+/*  max-height: 400px;
+  max-width: 600px;*/
 }
 
 .row .img img{
   padding-top: 10px;
-  max-height: 400px;
-  max-width: 600px;
+/*  max-height: 400px;
+  max-width: 600px;*/
 }
 
 .col-md-4 img{
   padding-top: 10px;
-  max-height: 400px;
-  max-width: 600px;
+/*  max-height: 400px;
+  max-width: 600px;*/
+}
+
+.jumbotron{
+  background-image: url('/./image/img01.jpg'));
+  background-size: cover;
+}
+
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
